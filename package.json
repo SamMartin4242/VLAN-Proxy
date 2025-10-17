@@ -4,8 +4,11 @@
   "description": "Node.js HTTP/HTTPS proxy server for IoT device testing with Portenta H7",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node server-mqtt.js",
+    "start-http": "node server.js",
     "start-mqtt": "node server-mqtt.js",
+    "start-dns": "node dns-server.js",
+    "start-all": "concurrently \"npm run start-mqtt\" \"npm run start-dns\"",
     "dev": "nodemon server.js",
     "dev-mqtt": "nodemon server-mqtt.js",
     "test": "node test-proxy.js"
@@ -20,11 +23,12 @@
   "author": "Sam Martin",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
+    "dns-packet": "^5.6.1",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "http-proxy": "^1.18.1",
     "morgan": "^1.10.0",
-    "cors": "^2.8.5",
-    "dotenv": "^16.3.1",
     "ws": "^8.14.2"
   },
   "devDependencies": {
