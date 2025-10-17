@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "start-mqtt": "node server-mqtt.js",
     "dev": "nodemon server.js",
+    "dev-mqtt": "nodemon server-mqtt.js",
     "test": "node test-proxy.js"
   },
   "keywords": [
